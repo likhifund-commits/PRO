@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LIKHITH // Player One</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070f;--panel:#10101e;--line:#25254a;--text:#e6e8ff;--mute:#8a8fb8;--a:#00f0ff;--b:#ff2e97;--c:#9dff3a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',system-ui,sans-serif;font-size:18px;line-height:1.5;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 0,transparent,var(--bg) 75%);pointer-events:none;z-index:-1}
+h1,h2,h3,.o{font-family:'Orbitron',system-ui,sans-serif;letter-spacing:.06em}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px;background:#07070fdd;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav a{color:var(--mute);text-decoration:none;font-family:Orbitron,sans-serif;font-size:12px;padding:6px 12px;border:1px solid transparent;letter-spacing:.12em}
+nav a:hover{color:var(--a);border-color:var(--a);box-shadow:0 0 12px #00f0ff55}
+section{max-width:960px;margin:0 auto;padding:64px 20px 8px}
+.hero{text-align:center;padding-top:90px}
+.tag{color:var(--c);font-family:Orbitron,sans-serif;font-size:13px;letter-spacing:.3em;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+h1{font-size:clamp(44px,12vw,104px);font-weight:800;line-height:1;margin:14px 0;color:#fff;text-shadow:3px 0 var(--b),-3px 0 var(--a),0 0 30px #00f0ff66}
+.sub{color:var(--mute);font-size:21px;max-width:560px;margin:0 auto 28px}
+.btn{display:inline-block;margin:6px;padding:12px 26px;font-family:Orbitron,sans-serif;font-size:13px;letter-spacing:.15em;text-decoration:none;color:#000;background:var(--a);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:.2s}
+.btn.alt{background:var(--b);color:#fff}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.2)}
+h2{font-size:22px;color:var(--a);margin-bottom:22px}
+h2::before{content:"> ";color:var(--b)}
+.card{background:var(--panel);border:1px solid var(--line);padding:20px;position:relative;transition:.2s}
+.card:hover{border-color:var(--a);box-shadow:0 0 18px #00f0ff33;transform:translateY(-3px)}
+.card::after{content:"";position:absolute;top:-1px;right:-1px;width:14px;height:14px;background:var(--b);clip-path:polygon(0 0,100% 0,100% 100%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+h3{font-size:15px;margin-bottom:6px;color:#fff}
+.mute{color:var(--mute)}
+.lvl{display:flex;justify-content:space-between;font-size:15px;margin-top:12px}
+.bar{height:10px;background:#1a1a33;border:1px solid var(--line);margin-top:4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--c));box-shadow:0 0 10px var(--a)}
+.quest{border-left:3px solid var(--b);padding-left:18px;margin-bottom:22px}
+.quest small{color:var(--c);font-family:Orbitron,sans-serif;font-size:11px;letter-spacing:.15em}
+.chips span{display:inline-block;margin:4px 6px 4px 0;padding:5px 12px;border:1px solid var(--a);color:var(--a);font-size:15px}
+.chips span:nth-child(3n){border-color:var(--b);color:var(--b)}
+.chips span:nth-child(3n+1){border-color:var(--c);color:var(--c)}
+footer{text-align:center;color:var(--mute);padding:60px 20px 40px;font-family:Orbitron,sans-serif;font-size:12px;letter-spacing:.2em}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.hero{perspective:900px}
+h1{transform-style:preserve-3d;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotateX(8deg) rotateY(-6deg)}}
+.grid{perspective:1000px}
+.card{transform-style:preserve-3d;will-change:transform}
+.card h3,.card p{transform:translateZ(24px)}
+.tile{height:170px;margin:-20px -20px 14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px;font-family:Orbitron,sans-serif;font-size:11px;letter-spacing:.15em;color:#fff}
+.t1{background:linear-gradient(135deg,#ff2e97,#3a0ca3)}.t2{background:linear-gradient(135deg,#00f0ff,#0a1a6e)}
+.t3{background:linear-gradient(135deg,#9dff3a,#08423a)}.t4{background:linear-gradient(135deg,#ffb800,#7a1236)}
+.tile::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,#ffffff14 0 2px,transparent 2px 14px)}
+.tile b{position:relative;background:#000a;padding:3px 8px}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<nav><a href="#top">START</a><a href="#stats">STATS</a><a href="#quests">QUESTS</a><a href="#projects">PROJECTS</a><a href="#portfolio">PORTFOLIO</a><a href="#inventory">INVENTORY</a><a href="#contact">CONTACT</a></nav>
+
+<section class="hero" id="top">
+<div class="tag">&#9654; PRESS START</div>
+<h1>LIKHITH</h1>
+<p class="sub">Digital media &amp; animation student. Game-art builder. Founder of JustGrabbit. Based in Bengaluru.</p>
+<a class="btn" href="#projects">VIEW PROJECTS</a><a class="btn alt" href="#contact">JOIN MY PARTY</a>
+</section>
+
+<section id="stats">
+<h2 class="o">PLAYER STATS</h2>
+<div class="grid">
+<div class="card"><h3>CLASS</h3><p class="mute">B.Voc Student &mdash; St. Joseph's University</p>
+<div class="lvl"><span>Languages</span><span class="mute">English &bull; Kannada</span></div></div>
+<div class="card"><h3>ATTRIBUTES</h3>
+<div class="lvl"><span>Problem Solving</span><span>85</span></div><div class="bar"><i style="width:85%"></i></div>
+<div class="lvl"><span>Team Collaboration</span><span>80</span></div><div class="bar"><i style="width:80%"></i></div>
+<div class="lvl"><span>Adaptability</span><span>90</span></div><div class="bar"><i style="width:90%"></i></div>
+<div class="lvl"><span>Time Management</span><span>75</span></div><div class="bar"><i style="width:75%"></i></div></div>
+</div>
+</section>
+
+<section id="quests">
+<h2 class="o">QUEST LOG</h2>
+<div class="quest"><small>ACTIVE &bull; 2023 &ndash; PRESENT</small><h3>Bachelor of Vocational Studies (B.Voc)</h3><p class="mute">St. Joseph's University, Bengaluru</p></div>
+<div class="quest"><small>COMPLETED &bull; 2021 &ndash; 2023</small><h3>Pre-University Course (PUC)</h3><p class="mute">St. Joseph's Pre-University College, Bengaluru</p></div>
+<div class="quest"><small>COMPLETED &bull; 2021</small><h3>SSLC &mdash; Tutorial Level</h3><p class="mute">St. Francis High School, Bengaluru</p></div>
+</section>
+
+<section id="projects">
+<h2 class="o">PROJECTS</h2>
+<div class="grid">
+<div class="card"><h3>CASTLE EMBERHOLD</h3><p class="mute">Capstone dark action RPG in Unreal Engine 5. Game design, narrative and asset work.</p></div>
+<div class="card"><h3>JUSTGRABBIT</h3><p class="mute">My print-on-demand Shopify store. Designs, setup and integrations, run end to end.</p></div>
+<div class="card"><h3>B.VOC FIELD PROJECTS</h3><p class="mute">Team assignments applying industry tools and workflows.</p></div>
+</div>
+</section>
+
+<section id="portfolio">
+<h2 class="o">PORTFOLIO</h2>
+<div class="grid">
+<div class="card"><div class="tile t1"><b>GRAPHIC DESIGN</b></div><h3>POSTERS &amp; PRINT</h3><p class="mute">Merch and poster designs.</p></div>
+<div class="card"><div class="tile t2"><b>ANIMATION</b></div><h3>MOTION WORK</h3><p class="mute">Short animations and loops.</p></div>
+<div class="card"><div class="tile t3"><b>GAME ART</b></div><h3>3D ASSETS</h3><p class="mute">Props and environment pieces.</p></div>
+<div class="card"><div class="tile t4"><b>BRANDING</b></div><h3>LOGOS &amp; IDENTITY</h3><p class="mute">Brand looks for stores and projects.</p></div>
+</div>
+</section>
+
+<section id="inventory">
+<h2 class="o">INVENTORY</h2>
+<div class="card chips">
+<span>Graphic Design</span><span>Animation</span><span>Unreal Engine 5</span><span>Shopify</span><span>MS Word</span><span>MS Excel</span><span>MS PowerPoint</span><span>Data Handling</span><span>Communication</span>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="o">MULTIPLAYER LOBBY</h2>
+<div class="card" style="text-align:center">
+<h3>OPEN TO NEW PARTIES</h3>
+<p class="mute" style="margin:8px 0 16px">Internships, collabs and creative projects. Bengaluru, India.</p>
+<a class="btn" href="#top">BACK TO MENU</a>
+</div>
+</section>
+
+<footer>&copy; 2026 LIKHITH &bull; GAME ON</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+try{
+const cv=document.getElementById('bg'),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true}),S=new THREE.Scene(),C=new THREE.PerspectiveCamera(60,1,.1,100);
+C.position.z=7;
+const mk=(g,c)=>new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:c,wireframe:true}));
+const ico=mk(new THREE.IcosahedronGeometry(2,1),0x00f0ff),knot=mk(new THREE.TorusKnotGeometry(1,.3,80,12),0xff2e97),cube=mk(new THREE.BoxGeometry(1,1,1),0x9dff3a);
+ico.position.set(3.6,1,-2);knot.position.set(-4,-1.5,-3);cube.position.set(-2.5,2.5,-1);
+S.add(ico,knot,cube);
+const N=400,pos=new Float32Array(N*3);for(let i=0;i<N*3;i++)pos[i]=(Math.random()-.5)*30;
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.05}));S.add(pts);
+let mx=0,my=0,sy=0;
+addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+addEventListener('scroll',()=>sy=scrollY/innerHeight);
+function rs(){R.setSize(innerWidth,innerHeight,false);R.setPixelRatio(Math.min(devicePixelRatio,2));C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}
+addEventListener('resize',rs);rs();
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+(function t(){requestAnimationFrame(t);
+if(!rm){ico.rotation.x+=.003;ico.rotation.y+=.004;knot.rotation.x+=.006;knot.rotation.y+=.004;cube.rotation.x+=.01;cube.rotation.y+=.01;pts.rotation.y+=.0004}
+C.position.x+=(mx*2-C.position.x)*.05;C.position.y+=(-my*2-sy*2-C.position.y)*.05;C.lookAt(0,-sy*2,0);R.render(S,C)})();
+}catch(e){}
+document.querySelectorAll('.card').forEach(c=>{
+c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+c.style.transform='rotateY('+x*14+'deg) rotateX('+-y*14+'deg) translateY(-3px)'});
+c.addEventListener('mouseleave',()=>c.style.transform='')});
+</script>
+</body>
+</html>
